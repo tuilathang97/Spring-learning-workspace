@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Contact</title>
+</head>
+<body>
+	<h1>Add View</h1>
+	<form th:action="@{/add}" method="POST" th:object="${contact}">
+		<table>
+			<tr>
+                <td>Name:</td>
+                <td><input type="text" th:field="*{name}" /></td>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+            </tr>
+            <tr>
+                <td>phoneNum:</td>
+                <td><input type="text" th:field="*{phoneNum}" /></td>
+                <td th:if="${#fields.hasErrors('phoneNum')}" th:errors="*{phoneNum}">phoneNum Error</td>
+            </tr>
+			<tr>
+           		<td><button type="submit">Submit</button></td>
+        	</tr>
+		</table>
+	</form>
+</body>
+</html>
